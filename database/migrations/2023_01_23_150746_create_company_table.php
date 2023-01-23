@@ -14,12 +14,16 @@ class CreateCompanyTable extends Migration
     public function up()
     {
         Schema::create('company', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('name')->nullable()->default(null);
-            $table->integer('locationId')->nullable()->default(null);
-            $table->integer('companyGroupId')->nullable()->default(null);
-            $table->integer('assetId')->nullable()->default(null);
+            $table->unsignedBigInteger('location_id');
+            $table->unsignedBigInteger('company_group_id');
+            $table->unsignedBigInteger('asset_id');
             $table->timestamps();
+
+            $table->foreign('location_id')->references('id')->on('location');
+            $table->foreign('company_group_id')->references('id')->on('company_group');
+            $table->foreign('asset_id')->references('id')->on('asset');
         });
     }
 

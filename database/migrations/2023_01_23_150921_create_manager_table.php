@@ -14,10 +14,13 @@ class CreateManagerTable extends Migration
     public function up()
     {
         Schema::create('manager', function (Blueprint $table) {
-            $table->id();
-            $table->integer('peopleId')->nullable()->default(null);
-            $table->integer('companyId')->nullable()->default(null);
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('people_id');
+            $table->unsignedBigInteger('company_id');
             $table->timestamps();
+
+            $table->foreign('people_id')->references('id')->on('people');
+            $table->foreign('company_id')->references('id')->on('company');
         });
     }
 

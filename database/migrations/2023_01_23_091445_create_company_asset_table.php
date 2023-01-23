@@ -13,7 +13,7 @@ class CreateCompanyAssetTable extends Migration
      */
     public function up()
     {
-        Schema::create('company_asset', function (Blueprint $table) {
+        Schema::create('asset', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable()->default(null);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateCompanyAssetTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company_asset');
+        Schema::dropIfExists('asset');
     }
 }

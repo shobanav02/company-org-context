@@ -13,7 +13,7 @@ class CreateCompanyLocationTable extends Migration
      */
     public function up()
     {
-        Schema::create('company_location', function (Blueprint $table) {
+        Schema::create('location', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable()->default(null);
             $table->integer('province')->nullable()->default(null);
@@ -31,6 +31,6 @@ class CreateCompanyLocationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company_location');
+        Schema::dropIfExists('location');
     }
 }

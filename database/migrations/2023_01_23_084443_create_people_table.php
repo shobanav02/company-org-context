@@ -14,7 +14,7 @@ class CreatePeopleTable extends Migration
     public function up()
     {
         Schema::create('people', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
         
             // Basic Information
             $table->string('employeeNumber');
@@ -63,7 +63,6 @@ class CreatePeopleTable extends Migration
 
             // Employment Basic
             $table->date('hireDate');
-          
 
             $table->string('password')->nullable();
             $table->boolean('blocked')->default(false);

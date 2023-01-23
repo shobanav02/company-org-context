@@ -14,10 +14,11 @@ class CreateCompanyGroupTable extends Migration
     public function up()
     {
         Schema::create('company_group', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('name')->nullable()->default(null);
-            $table->integer('companySubGroupId')->nullable()->default(null);
+            $table->unsignedBigInteger('company_sub_group_id');
             $table->timestamps();
+            $table->foreign('company_sub_group_id')->references('id')->on('company_sub_group');
         });
     }
 
